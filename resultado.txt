@@ -1,0 +1,17 @@
+Tipo de arreglo: 0
+R: Tamaño:6000 Tiempo:600 NanoSegundos
+Q: Tamaño:6000 Tiempo:600 NanoSegundos
+B: Tamaño:6000 Tiempo:600 NanoSegundos
+-------------------------
+R: Tamaño:60000 Tiempo:900 NanoSegundos
+Q: Tamaño:60000 Tiempo:400 NanoSegundos
+B: Tamaño:60000 Tiempo:500 NanoSegundos
+-------------------------
+R: Tamaño:600000 Tiempo:600 NanoSegundos
+Q: Tamaño:600000 Tiempo:700 NanoSegundos
+B: Tamaño:600000 Tiempo:700 NanoSegundos
+-------------------------
+R: Tamaño:6000000 Tiempo:1200 NanoSegundos
+Q: Tamaño:6000000 Tiempo:700 NanoSegundos
+B: Tamaño:6000000 Tiempo:600 NanoSegundos
+-------------------------
