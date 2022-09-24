@@ -1,11 +1,13 @@
 package co.edu.unbosque.view;
 
+import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,7 +16,28 @@ import javax.swing.JOptionPane;
  * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
  *
  */
-public class Vista {
+public class Vista extends JFrame{
+	
+	private InicioPanel inicioPanel;
+	private parametrosPanel parametrosPanel;
+	private ResultadoPanel resultadoPanel;
+	
+	
+	public Vista(){
+		 setVisible(true);
+		 setSize(500, 500);
+		 setDefaultCloseOperation(EXIT_ON_CLOSE);
+		 setTitle("Búsqueda de algoritmos de fuerza Bruta");
+		 setResizable(false);
+		 setLocationRelativeTo(null);
+		 
+		 
+		 inicioPanel = new InicioPanel();
+		 resultadoPanel = new ResultadoPanel();
+		 parametrosPanel = new parametrosPanel();
+		 
+		 add(inicioPanel, BorderLayout.CENTER);
+	}
 	
 	/**
 	 * MÃ©todo encargado de mostrarle al usuario un mensaje.
@@ -91,5 +114,18 @@ public class Vista {
 		return texto;
 	}
 
+	public InicioPanel getInicioPanel() {
+		return inicioPanel;
+	}
+
+	public parametrosPanel getParametrosPanel() {
+		return parametrosPanel;
+	}
+
+	public ResultadoPanel getResultadoPanel() {
+		return resultadoPanel;
+	}
+
+	
 	
 }
