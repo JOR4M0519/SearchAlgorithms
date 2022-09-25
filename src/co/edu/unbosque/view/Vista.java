@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
 /**
  * Esta clase representa a la vista en el patron de arquitectura MVC.
  * Se encarga de almacenar los métodos que daran lugar a la visualización del programa de parte del usuario.
- * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ * @author Laura Mateus, Jeanpierr Ramos y Kevin Garcia.
  *
  */
 public class Vista extends JFrame{
 	
 	private InicioPanel inicioPanel;
-	private parametrosPanel parametrosPanel;
+	private ParametrosPanel parametrosPanel;
 	private ResultadoPanel resultadoPanel;
 	
 	
@@ -27,6 +27,7 @@ public class Vista extends JFrame{
 		 setVisible(true);
 		 setSize(500, 500);
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
+		 setLayout(new BorderLayout());
 		 setTitle("B�squeda de algoritmos de fuerza Bruta");
 		 setResizable(false);
 		 setLocationRelativeTo(null);
@@ -34,9 +35,9 @@ public class Vista extends JFrame{
 		 
 		 inicioPanel = new InicioPanel();
 		 resultadoPanel = new ResultadoPanel();
-		 parametrosPanel = new parametrosPanel();
+		 parametrosPanel = new ParametrosPanel();
 		 
-		 add(inicioPanel, BorderLayout.CENTER);
+		 add(inicioPanel,BorderLayout.CENTER);
 	}
 	
 	/**
@@ -118,7 +119,8 @@ public class Vista extends JFrame{
 		return inicioPanel;
 	}
 
-	public parametrosPanel getParametrosPanel() {
+
+	public ParametrosPanel getParametrosPanel() {
 		return parametrosPanel;
 	}
 

@@ -10,6 +10,7 @@ import java.util.stream.LongStream;
 import javax.swing.JOptionPane;
 
 import co.edu.unbosque.view.Vista;
+
 /**
  * La clase Controller representa el controlador en el patron de arquitectura MVC que unira las funciones de la vista y el modelo.
  * Además contiene ciertos metodos que nos ayudan a generar datos.
@@ -27,7 +28,7 @@ public class Controller implements ActionListener {
 	public Controller() {
 
 		vista = new Vista();
-
+		asignarOyentes();
 		
 	}
 
@@ -43,9 +44,14 @@ public class Controller implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent e) {
+		
 		if(e.getActionCommand().equals("ALGORITMO_BM")) {
 			
+			System.out.println("Di click");
+			
 		}else if(e.getActionCommand().equals("ALGORITMO_KMP")) {
+			
+			
 			
 		}else if(e.getActionCommand().equals("CARGAR_TEXTO")) {
 			
