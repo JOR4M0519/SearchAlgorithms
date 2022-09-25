@@ -24,11 +24,10 @@ public class Vista extends JFrame{
 	
 	
 	public Vista(){
-		 setVisible(true);
 		 setSize(500, 500);
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 setLayout(new BorderLayout());
-		 setTitle("Búsqueda de algoritmos de fuerza Bruta");
+		 setTitle("Bï¿½squeda de algoritmos de fuerza Bruta");
 		 setResizable(false);
 		 setLocationRelativeTo(null);
 		 
@@ -37,7 +36,8 @@ public class Vista extends JFrame{
 		 resultadoPanel = new ResultadoPanel();
 		 parametrosPanel = new ParametrosPanel();
 		 
-		 add(inicioPanel,BorderLayout.CENTER);
+		 add(resultadoPanel,BorderLayout.CENTER);
+		 setVisible(true);
 	}
 	
 	/**
