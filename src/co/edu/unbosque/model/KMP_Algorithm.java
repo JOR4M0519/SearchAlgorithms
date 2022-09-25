@@ -6,13 +6,13 @@ import java.util.Stack;
 public class KMP_Algorithm {
 
 	public static void main(String[] args) {
-		System.out.println("Tamaño: "+busquedaPatrones(
+		System.out.println("Tamaño: "+ busquedaPatrones(
 				"Gmail works great with desktop clients like Microsoft Outlook, "
 				+ "Apple Mail and Mozilla Thunderbird, including contact and event "
-				+ "sync.", "a", false).toString());
+				+ "sync.", "a", false));
+		
 	}
-
-	
+			
 	
 	//Recibe la cadena de caracteres del patron
 	//devuelve la lista con el valor respectivo de cada leetra del patron
