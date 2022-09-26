@@ -27,7 +27,7 @@ public class Vista extends JFrame{
 		 setSize(500, 500);
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
 		 setLayout(new BorderLayout());
-		 setTitle("B�squeda de algoritmos de fuerza Bruta");
+		 setTitle("Busqueda con algoritmos de fuerza Bruta");
 		 setResizable(false);
 		 setLocationRelativeTo(null);
 		 

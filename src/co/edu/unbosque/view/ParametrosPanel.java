@@ -1,5 +1,6 @@
 package co.edu.unbosque.view;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -13,8 +14,8 @@ import javax.swing.JTextArea;
 
 public class ParametrosPanel extends JPanel {
 
-	private	JLabel titulo;
-	private	JTextArea textoBuscar;
+	private	JLabel lblTitulo;
+	private	JTextArea txtTextoBuscar;
 	private JButton btnRegresar;
 	private JButton btnContinuar;
 	private JCheckBox chkMayusMinus;
@@ -23,25 +24,28 @@ public class ParametrosPanel extends JPanel {
 	
 		setLayout(new GridBagLayout());
 		
-		titulo = new JLabel("Digite lo que desea filtrar del archivo cargado");
-		titulo.setFont(new Font("Serif", Font.BOLD, 20));
+		lblTitulo = new JLabel("Digite lo que desea filtrar del archivo cargado");
+		lblTitulo.setFont(new Font("Serif", Font.BOLD, 20));
 		
 		btnRegresar = new JButton("Regresar");
 		btnRegresar.setActionCommand("REGRESAR");
 		
 		btnContinuar = new JButton("Continuar");
-		btnContinuar.setActionCommand("CONTINUAR_PARAM");
+		btnContinuar.setActionCommand("CONTINUAR");
 		
-		textoBuscar = new JTextArea("Escriba el patrón de palabras");
+		txtTextoBuscar = new JTextArea("Escriba el patrón de palabras");
 		
-		chkMayusMinus = new JCheckBox("Con sensibilidad a Mayus");
+		chkMayusMinus = new JCheckBox("Sensibilidad a Mayus-Minus");
 		
-		addComponent(titulo,1,0,1,1,0,1,GridBagConstraints.CENTER);
-		addComponent(btnRegresar,0,1,1,1,0,1,GridBagConstraints.CENTER);
-		addComponent(textoBuscar,1,1,1,1,0,1,GridBagConstraints.CENTER);
-		addComponent(chkMayusMinus,2,1,1,1,0,1,GridBagConstraints.CENTER);
-		addComponent(btnContinuar,1,2,1,1,0,1,GridBagConstraints.CENTER);
+
 		
+		addComponent(lblTitulo,		1,0, 1,1, 0,0.3,GridBagConstraints.CENTER);
+		
+		addComponent(txtTextoBuscar,1,2, 1,1, 0,1,GridBagConstraints.BOTH);
+		addComponent(chkMayusMinus,	1,1, 2,1, 0,0.1,GridBagConstraints.HORIZONTAL);
+		
+		addComponent(btnRegresar,	1,4, 1,1, 0,0.08,GridBagConstraints.HORIZONTAL);
+		addComponent(btnContinuar,	1,3, 1,1, 0,0.08,GridBagConstraints.HORIZONTAL);
 		
 	}
 	
@@ -58,11 +62,11 @@ public class ParametrosPanel extends JPanel {
 	  }
 
 	public JLabel getTitulo() {
-		return titulo;
+		return lblTitulo;
 	}
 
-	public JTextArea getTextoBuscar() {
-		return textoBuscar;
+	public JTextArea getTxtTextoBuscar() {
+		return txtTextoBuscar;
 	}
 
 	public JButton getBtnRegresar() {
