@@ -16,15 +16,15 @@ public class InicioPanel extends JPanel {
 	private JButton btnBM;
 	private JButton btnKMP;
 	
-	private	JLabel titulo;
-	private	JLabel autores;
+	private	JLabel lablTitulo;
+	private	JLabel lblAutores;
 	
 	public InicioPanel() {
 		
 		setLayout(new GridBagLayout());
 		
-		titulo = new JLabel("Bienvenidos al sistema de coincidencia");
-		titulo.setFont(new Font("Serif", Font.BOLD, 20));
+		lablTitulo = new JLabel("Bienvenidos al sistema de coincidencia");
+		lablTitulo.setFont(new Font("Serif", Font.BOLD, 20));
 		
 		btnBM = new JButton("Algoritmo BM");
 		btnBM.setActionCommand("ALGORITMO_BM");
@@ -38,16 +38,16 @@ public class InicioPanel extends JPanel {
 		btnSalir = new JButton("Salir");
 		btnSalir.setActionCommand("SALIR");
 		
-		autores = new JLabel("<html><div style='text-align: center;'>" + "Autores: "+"<br>"+
+		lblAutores = new JLabel("<html><div style='text-align: center;'>" + "Autores: "+"<br>"+
 		"Jeanpierr Ramos "+"<br>"+"Kevin García"+"<br>"+"Laura Mateus"+ "</div></html>");
-		autores.setFont(new Font("Serif", Font.CENTER_BASELINE, 12));
+		lblAutores.setFont(new Font("Serif", Font.CENTER_BASELINE, 12));
 		
-		addComponent(titulo,0,0,1,1,0,1,GridBagConstraints.CENTER);
+		addComponent(lablTitulo,0,0,1,1,0,1,GridBagConstraints.CENTER);
 		addComponent(btnBM,0,1,1,1,0,0.5,GridBagConstraints.BOTH);
 		addComponent(btnKMP,0,2,1,1,0,0.5,GridBagConstraints.BOTH);
 		addComponent(btnCargarArchivo,0,3,1,1,0,0.5,GridBagConstraints.BOTH);
 		addComponent(btnSalir,0,4,1,1,0,0.5,GridBagConstraints.CENTER);
-		addComponent(autores,0,5,1,1,0,0.5,GridBagConstraints.CENTER);
+		addComponent(lblAutores,0,5,1,1,0,0.5,GridBagConstraints.CENTER);
 		
 	}
 	
@@ -79,12 +79,12 @@ public class InicioPanel extends JPanel {
 		return btnKMP;
 	}
 
-	public JLabel getTitulo() {
-		return titulo;
+	public JLabel getLblTitulo() {
+		return lablTitulo;
 	}
 
-	public JLabel getAutores() {
-		return autores;
+	public JLabel getLblAutores() {
+		return lblAutores;
 	}
 	
 	
