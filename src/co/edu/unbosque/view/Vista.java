@@ -52,7 +52,6 @@ public class Vista extends JFrame{
 	        try {
 	            Highlighter hilite = comp.getHighlighter();
 	            for (String string : posiciones) {
-	            	
 	            	hilite.addHighlight( Integer.parseInt(string.split(",")[0]),Integer.parseInt(string.split(",")[1]) , DefaultHighlighter.DefaultPainter);	
 				}
 	            

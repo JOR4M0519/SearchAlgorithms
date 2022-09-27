@@ -77,7 +77,7 @@ public class Controller implements ActionListener {
 		}
 		
 		if(e.getActionCommand().equals("REGRESAR")) {
-			
+			vista.getParametrosPanel().getTxtTextoBuscar().setText("");
 			contenido.setPatron(null);
 			contenido.setTexto(null);
 			vista.getInicioPanel().setVisible(true);
