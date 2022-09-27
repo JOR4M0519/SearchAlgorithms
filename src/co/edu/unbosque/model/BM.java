@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.ArrayList;
+
 /**
  * En la clase BM se encuentran los metodos que contibuyen a la identificacion de patrones en un texto mediante el algoritmo
  * BM.
@@ -8,46 +10,31 @@ package co.edu.unbosque.model;
  */
 public class BM {
 
-	private String posicion;
-
-	//Ignorar esto - controller BM
-	//	bM= new BM();
-	//	String textoLargo= "ABAAAABAACD";
-	//	String patron="ABA";
-	//	int numeroDePatrones=0;
-	//	
-	//	String [] posicion= bM.obtenerPosiciones(textoLargo,patron);
-	//	if(posicion!=null) {
-	//		numeroDePatrones=posicion.length;
-	//	}
-	//	
-	//	System.out.println("El numero de patrones encontrados es: "+numeroDePatrones);
-	//Ignorar esto - controller BM
+	private ArrayList<String> posicion;
 
 	/**
 	 * Se encarga de asignar las acciones de los componentes.
 	 */
 	public BM() {
-		this.posicion="";
+		this.posicion=new ArrayList<String>();
 	}
 
-	
+
 	/**
-	 * Obtiene las posiciones en donde encontra semejanza y las separa todas guardandolas en un array para saber el número 
-	 * de patrones encontrados y sus posiciones dentro del texto.
+	 * Obtiene las posiciones en donde encontra semejanza. 
 	 * @param textoLargo Texto ingresado por el usuario.
 	 * @param patron Patron ingresado por el usuario.
-	 * @return Posiciones en donde se encuentran los patrones.
+	 * @return ArrayList en donde se encuentran las posiciones de los patrones.
 	 */
-	public String[] obtenerPosiciones(String textoLargo, String patron) {
-		buscar(textoLargo, patron);
-		if(this.posicion.length()==0) {
-			return null;
+	public ArrayList<String> obtenerPosiciones(String textoLargo, String patron, boolean coincidirMayusMinus) {
+		if(!coincidirMayusMinus) {
+			patron = patron.toLowerCase();
+			textoLargo = textoLargo.toLowerCase();
 		}
-		this.posicion=this.posicion.substring(0, this.posicion.length()-1);
-		return this.posicion.split(" ");
+		buscar(textoLargo, patron);
+		return this.posicion;
 	}
-	
+
 	/**
 	 * Se encarga de procesar el texto para encontrar patrones en un determinado caso.
 	 * @param tempUno Array que almacena el primer caracter.
@@ -56,37 +43,23 @@ public class BM {
 	 * @param tamanoPatron Cantidad de caracteres del patron.
 	 */
 	public void revisarCasoUno(int []tempUno, int []tempDos,char []arrayPatron, int tamanoPatron){
-		// m is the length of pattern 
 		int x= tamanoPatron; 
 		int i= tamanoPatron + 1;
 		tempDos[x]= i;
 
 		while(x>0){
-			/*if character at position i-1 is not 
-        equivalent to character at j-1, then 
-        continue searching to right of the
-        pattern for border */
 			while(i<=tamanoPatron && arrayPatron[x-1]!=arrayPatron[i-1]){
-				/* the character preceding the occurrence of t 
-            in pattern P is different than the mismatching 
-            character in P, we stop skipping the occurrences 
-            and shift the pattern from i to j */
 				if (tempUno[i]==0) {
 					tempUno[i]= i-x;
 				}
-				//Update the position of next border 
 				i= tempDos[i];
 			}
-			/* p[i-1] matched with p[j-1], border is found.
-        store the beginning position of border */
 			x--; 
 			i--;
 			tempDos[x]= i; 
 		}
 	}
 
-	//Preprocessing for case 2
-	
 	/**
 	 * Se encarga de procesar el texto para encontrar patrones en el segundo caso.
 	 * @param tempUno Array que almacena el primer caracter.
@@ -114,7 +87,7 @@ public class BM {
 			}
 		}
 	}
-	
+
 	/**
 	 * Se encarga de buscar un patron en el texto usando el algoritmo BM.
 	 * @param textoLargo Texto ingresado por el usuario.
@@ -150,8 +123,9 @@ public class BM {
 				/* If the pattern is present at the current shift, 
         then index j will become -1 after the above loop */
 				if (x<0){
-					int posicionFinal= posicionInicial+(tamanoPatron-1);
-					this.posicion+= posicionInicial+","+posicionFinal+" ";
+					int posicionFinal= posicionInicial+(tamanoPatron);
+					String posi= posicionInicial+","+posicionFinal;
+					this.posicion.add(posi);
 					posicionInicial+= tempUno[0];
 				}else {
 					/*pat[i] != pat[s+j] so shift the pattern

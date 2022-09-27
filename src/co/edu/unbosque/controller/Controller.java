@@ -2,6 +2,7 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import co.edu.unbosque.model.Contenido;
 import co.edu.unbosque.view.Vista;
@@ -98,10 +99,10 @@ public class Controller implements ActionListener {
 			boolean sensibleMay = vista.getParametrosPanel().getChkMayusMinus().isSelected();
 			
 			if(contenido.getPatron() != null) {
-				
-				vista.getResultadoPanel().getTxtResultado().setText(contenido.getTexto());
-				vista.highlight(vista.getResultadoPanel().getTxtResultado(), contenido.obtnerPosicionesPatrones(sensibleMay)); ;
-				
+				ArrayList<String> resultado=contenido.obtnerPosicionesPatrones(sensibleMay);
+				vista.getResultadoPanel().getTxtResultado().setText(contenido.getTexto()+"\n"
+				+"El numero de coincidencias es de: "+ resultado.size());
+				vista.highlight(vista.getResultadoPanel().getTxtResultado(),resultado);
 				
 				vista.getResultadoPanel().setVisible(true);
 				vista.getParametrosPanel().setVisible(false);

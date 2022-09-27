@@ -11,25 +11,13 @@ import java.util.Stack;
  *
  */
 public class KMPAlgorithm {
-
-	/**
-	 * M�todo que permite ejecutar la clase.
-	 * @param args Parametro que permite la ejecucion de la clase.
-	 */
-	public static void main(String[] args) {
-		System.out.println("Tama�o: "+ busquedaPatrones(
-				"Gmail works great with desktop clients like Microsoft Outlook, "
-				+ "Apple Mail and Mozilla Thunderbird, including contact and event "
-				+ "sync.", "a", false));
-		
-	}
 	 
 	/**
 	 * M�todo que se encarga de recolectar los patrones u los organiza.
 	 * @param patron2 Recibe la cadena de caracteres del patr�n.
 	 * @return Lista con el valor respectivo de cada letra del patron.
 	 */
-	public static ArrayList<Integer> tablaPatron(String patron2){
+	public ArrayList<Integer> tablaPatron(String patron2){
 		ArrayList<Integer> tabla = new ArrayList<Integer>();
 		String patron = patron2;
 		
@@ -54,7 +42,7 @@ public class KMPAlgorithm {
 	 * @param patron2 Recibe la cadena de caracteres del patron.
 	 * @return lista con el valor respectivo de cada leetra del patron.
 	 */
-	public static int[] tablaPatron2(String patron2){
+	public int[] tablaPatron2(String patron2){
 		int[] tabla = new int[patron2.length()];
 			
 			//ArrayList<Integer> tabla = new ArrayList<Integer>();
@@ -83,7 +71,7 @@ public class KMPAlgorithm {
 	 * @param coincidirMayusMinus Recibe la distinci�n entre minusculas y mayusculas.
 	 * @return La lista con patrones dentro del texto.
 	 */
-	public static ArrayList<String> busquedaPatrones(String texto2, String patron2,boolean coincidirMayusMinus){
+	public ArrayList<String> busquedaPatrones(String texto2, String patron2,boolean coincidirMayusMinus){
 		
 		String patron = patron2;
 		String texto = texto2;

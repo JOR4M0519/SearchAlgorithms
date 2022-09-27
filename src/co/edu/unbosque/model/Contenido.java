@@ -11,7 +11,9 @@ import java.util.ArrayList;
 public class Contenido {
 
 	private KMPAlgorithm kmp_Algorithm;
+	
 	private String tipoAlgoritmo;
+	private BM bM;
 	private String texto;
 	private String patron;
 	
@@ -20,6 +22,7 @@ public class Contenido {
 	 */
 	public Contenido() {
 		kmp_Algorithm = new KMPAlgorithm();
+		bM= new BM();
 	}
 	
 	/**
@@ -33,7 +36,7 @@ public class Contenido {
 			return kmp_Algorithm.busquedaPatrones(texto, patron, sensibleMay);	
 		}
 		
-		return null;
+		return bM.obtenerPosiciones(texto,patron,sensibleMay);
 		
 	}
 	
