@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Contenido {
 
-	private KMP_Algorithm kmp_Algorithm;
+	private KMPAlgorithm kmp_Algorithm;
 	private String tipoAlgoritmo;
 	private String texto;
 	private String patron;
@@ -19,7 +19,7 @@ public class Contenido {
 	 * Representa el metodo constructor de la clase Contenido.
 	 */
 	public Contenido() {
-		kmp_Algorithm = new KMP_Algorithm();
+		kmp_Algorithm = new KMPAlgorithm();
 	}
 	
 	/**
@@ -57,7 +57,7 @@ public class Contenido {
 	 * Se encarga de obtener la clase KMP_Algorithm.
 	 * @return Algoritmo Knuth-Morris-Pratt.
 	 */
-	public KMP_Algorithm getKmp_Algorithm() {
+	public KMPAlgorithm getKmp_Algorithm() {
 		return kmp_Algorithm;
 	}
 	
@@ -65,7 +65,7 @@ public class Contenido {
 	 * Se encarga de modificar la clase KMP_Algorithm.
 	 * @param kmp_Algorithm Algoritmo Knuth-Morris-Pratt.
 	 */
-	public void setKmp_Algorithm(KMP_Algorithm kmp_Algorithm) {
+	public void setKmp_Algorithm(KMPAlgorithm kmp_Algorithm) {
 		this.kmp_Algorithm = kmp_Algorithm;
 	}
 	

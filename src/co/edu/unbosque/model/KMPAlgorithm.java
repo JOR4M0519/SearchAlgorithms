@@ -10,14 +10,14 @@ import java.util.Stack;
  * @author Jeanpierr Ramos, Laura Mateus y Kevin Garcia.
  *
  */
-public class KMP_Algorithm {
+public class KMPAlgorithm {
 
 	/**
-	 * Método que permite ejecutar la clase.
+	 * Mï¿½todo que permite ejecutar la clase.
 	 * @param args Parametro que permite la ejecucion de la clase.
 	 */
 	public static void main(String[] args) {
-		System.out.println("Tamaño: "+ busquedaPatrones(
+		System.out.println("Tamaï¿½o: "+ busquedaPatrones(
 				"Gmail works great with desktop clients like Microsoft Outlook, "
 				+ "Apple Mail and Mozilla Thunderbird, including contact and event "
 				+ "sync.", "a", false));
@@ -25,8 +25,8 @@ public class KMP_Algorithm {
 	}
 	 
 	/**
-	 * Método que se encarga de recolectar los patrones u los organiza.
-	 * @param patron2 Recibe la cadena de caracteres del patrón.
+	 * Mï¿½todo que se encarga de recolectar los patrones u los organiza.
+	 * @param patron2 Recibe la cadena de caracteres del patrï¿½n.
 	 * @return Lista con el valor respectivo de cada letra del patron.
 	 */
 	public static ArrayList<Integer> tablaPatron(String patron2){
@@ -50,7 +50,7 @@ public class KMP_Algorithm {
 	}
 	
 	/**
-	 * Método que se encarga de recolectar los patrones u los organiza.
+	 * Mï¿½todo que se encarga de recolectar los patrones u los organiza.
 	 * @param patron2 Recibe la cadena de caracteres del patron.
 	 * @return lista con el valor respectivo de cada leetra del patron.
 	 */
@@ -80,7 +80,7 @@ public class KMP_Algorithm {
 	 * Realiza la busqueda de patrones que se repiten en el texto.
 	 * @param texto2 Recibe como entrada el texto.
 	 * @param patron2 Recibe como entrada el patron.
-	 * @param coincidirMayusMinus Recibe la distinción entre minusculas y mayusculas.
+	 * @param coincidirMayusMinus Recibe la distinciï¿½n entre minusculas y mayusculas.
 	 * @return La lista con patrones dentro del texto.
 	 */
 	public static ArrayList<String> busquedaPatrones(String texto2, String patron2,boolean coincidirMayusMinus){

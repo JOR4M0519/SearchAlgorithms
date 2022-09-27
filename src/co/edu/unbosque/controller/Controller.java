@@ -60,7 +60,7 @@ public class Controller implements ActionListener {
 				vista.getInicioPanel().setVisible(false);
 				vista.setContentPane(vista.getParametrosPanel());	
 			}else {
-				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrón");
+				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrï¿½n");
 			}
 			
 		}else if(e.getActionCommand().equals("ALGORITMO_KMP")) {
@@ -71,7 +71,7 @@ public class Controller implements ActionListener {
 				vista.getInicioPanel().setVisible(false);
 				vista.setContentPane(vista.getParametrosPanel());	
 			}else {
-				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrón");
+				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrï¿½n");
 			}
 			
 		}else if(e.getActionCommand().equals("CARGAR_TEXTO")) {
