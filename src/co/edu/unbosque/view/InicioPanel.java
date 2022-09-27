@@ -9,6 +9,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * En esta clase se encuentran los metodos que permiten la visualización del panel inicial, el cual se muestra al ejecutar el programa.
+ * @author Laura Mateus, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class InicioPanel extends JPanel {
 
 	private JButton btnCargarArchivo;
@@ -19,6 +24,9 @@ public class InicioPanel extends JPanel {
 	private	JLabel lablTitulo;
 	private	JLabel lblAutores;
 	
+	/**
+	 * Representa el metodo constructor de la clase InicioPanel.  
+	 */
 	public InicioPanel() {
 		
 		setLayout(new GridBagLayout());
@@ -51,6 +59,17 @@ public class InicioPanel extends JPanel {
 		
 	}
 	
+	/**
+	 * Añade los componentes al panel y especifica lase cordenadas del mismo.
+	 * @param component Componente que verá el usuario.
+	 * @param gridx Ajuste del grid en el eje x.
+	 * @param gridy Ajuste del grid en el eje y.
+	 * @param gridwidth Ajuste del acho del grid.
+	 * @param gridheight Ajuste del alto del grid.
+	 * @param weightx Ajusta la distribucion tendra el componente en el eje x.
+	 * @param weighty Ajusta la distribucion tendra el componente en el eje y.
+	 * @param fill Rellena el area que le es asignada.
+	 */
 	private void addComponent(Component component, int gridx, int gridy, int gridwidth, int gridheight,double weightx, double weighty, int fill) {
 		    GridBagConstraints gbc = new GridBagConstraints();
 		    gbc.gridx = gridx;
@@ -63,30 +82,52 @@ public class InicioPanel extends JPanel {
 		    add(component, gbc);
 		  }
 
+	/**
+	 * Se encarga de obtener el boton para cargar el archivo.
+	 * @return Boton para cargar archivo.
+	 */
 	public JButton getBtnCargarArchivo() {
 		return btnCargarArchivo;
 	}
 
+	/**
+	 * Se encarga de obtener el boton para salir del programa.
+	 * @return Boton para salir del programa.
+	 */
 	public JButton getBtnSalir() {
 		return btnSalir;
 	}
 
+	/**
+	 * Se encarga de obtener el boton para ejecutar el algoritmo BM.
+	 * @return Boton para ejecutar el algoritmo BM.
+	 */
 	public JButton getBtnBM() {
 		return btnBM;
 	}
 
+	/**
+	 * Se encarga de obtener el boton para ejecutar el algoritmo KMP.
+	 * @return Boton para ejecutar el algoritmo KMP.
+	 */
 	public JButton getBtnKMP() {
 		return btnKMP;
 	}
 
+	/**
+	 * Se encarga de obtener el label del titulo.
+	 * @return Label del titulo.
+	 */
 	public JLabel getLblTitulo() {
 		return lablTitulo;
 	}
 
+	/**
+	 * Se encarga de obtener el label de los autores del programa.
+	 * @return Label de los autores del programa.
+	 */
 	public JLabel getLblAutores() {
 		return lblAutores;
 	}
-	
-	
 	
 }

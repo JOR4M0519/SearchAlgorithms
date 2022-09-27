@@ -9,7 +9,7 @@ import co.edu.unbosque.view.Vista;
 /**
  * La clase Controller representa el controlador en el patron de arquitectura MVC que unira las funciones de la vista y el modelo.
  * Además contiene ciertos metodos que nos ayudan a generar datos.
- * @author Laura Mateus, Natalia Ardila, Jeanpierr Ramos y Kevin Garcia.
+ * @author Laura Mateus, Jeanpierr Ramos y Kevin Garcia.
  *
  */
 public class Controller implements ActionListener {
@@ -17,6 +17,7 @@ public class Controller implements ActionListener {
 
 	private Contenido contenido;
 	private Vista vista;
+	
 	/**
 	 * Representa el método constructor de la clase Controller, en el cual, se hacen las validaciones que permiten el 
 	 * correcto funcionamiento del programa.
@@ -29,6 +30,9 @@ public class Controller implements ActionListener {
 		
 	}
 
+	/**
+	 * Se encarga de asignar la activacion de los componentes.
+	 */
 	public void asignarOyentes() {
 
 		vista.getInicioPanel().getBtnBM().addActionListener(this);
@@ -43,7 +47,9 @@ public class Controller implements ActionListener {
 		
 	}
 	
-	
+	/**
+	 * Se encarga de asignar las acciones de los componentes.
+	 */
 	public void actionPerformed(ActionEvent e) {
 		
 		if(e.getActionCommand().equals("ALGORITMO_BM")) {

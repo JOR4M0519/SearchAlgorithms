@@ -3,8 +3,19 @@ package co.edu.unbosque.model;
 import java.util.ArrayList;
 import java.util.Stack;
 
+
+/**
+ * En la clase KMP_Algorithm se encuentran los metodos que contibuyen a la identificacion de patrones en un texto mediante el algoritmo
+ * Knuth-Morris-Pratt.
+ * @author Jeanpierr Ramos, Laura Mateus y Kevin Garcia.
+ *
+ */
 public class KMP_Algorithm {
 
+	/**
+	 * Método que permite ejecutar la clase.
+	 * @param args Parametro que permite la ejecucion de la clase.
+	 */
 	public static void main(String[] args) {
 		System.out.println("Tamaño: "+ busquedaPatrones(
 				"Gmail works great with desktop clients like Microsoft Outlook, "
@@ -12,10 +23,12 @@ public class KMP_Algorithm {
 				+ "sync.", "a", false));
 		
 	}
-			
-	
-	//Recibe la cadena de caracteres del patron
-	//devuelve la lista con el valor respectivo de cada leetra del patron
+	 
+	/**
+	 * Método que se encarga de recolectar los patrones u los organiza.
+	 * @param patron2 Recibe la cadena de caracteres del patrón.
+	 * @return Lista con el valor respectivo de cada letra del patron.
+	 */
 	public static ArrayList<Integer> tablaPatron(String patron2){
 		ArrayList<Integer> tabla = new ArrayList<Integer>();
 		String patron = patron2;
@@ -36,34 +49,40 @@ public class KMP_Algorithm {
 		return tabla;
 	}
 	
-	//Recibe la cadena de caracteres del patron
-		//devuelve la lista con el valor respectivo de cada leetra del patron
-		public static int[] tablaPatron2(String patron2){
-			int[] tabla = new int[patron2.length()];
+	/**
+	 * Método que se encarga de recolectar los patrones u los organiza.
+	 * @param patron2 Recibe la cadena de caracteres del patron.
+	 * @return lista con el valor respectivo de cada leetra del patron.
+	 */
+	public static int[] tablaPatron2(String patron2){
+		int[] tabla = new int[patron2.length()];
 			
 			//ArrayList<Integer> tabla = new ArrayList<Integer>();
-			String patron = patron2;
+		String patron = patron2;
 			
-			for (int i = 0; i < patron.length(); i++) {
-				if(i==0) tabla[0] = 0;
-				else {
-					int posicion = tabla[i-1];
-					if(patron.charAt(posicion)== patron.charAt(i)) 
-						posicion++;
-					else 
-						posicion=0;
+		for (int i = 0; i < patron.length(); i++) {
+			if(i==0) tabla[0] = 0;
+			else {
+				int posicion = tabla[i-1];
+				if(patron.charAt(posicion)== patron.charAt(i)) 
+					posicion++;
+				else 
+					posicion=0;
 					
-					tabla[i] = posicion;
-				}
+				tabla[i] = posicion;
 			}
-			
-			return tabla;
-		}
+		
+		}	
+		return tabla;
+	}
 	
 	/**
-	 * coincidirMayusMinus = si es igual a true debe coincidir las minusculas y mayusculas
-	 * 
-	*/
+	 * Realiza la busqueda de patrones que se repiten en el texto.
+	 * @param texto2 Recibe como entrada el texto.
+	 * @param patron2 Recibe como entrada el patron.
+	 * @param coincidirMayusMinus Recibe la distinción entre minusculas y mayusculas.
+	 * @return La lista con patrones dentro del texto.
+	 */
 	public static ArrayList<String> busquedaPatrones(String texto2, String patron2,boolean coincidirMayusMinus){
 		
 		String patron = patron2;
@@ -113,6 +132,7 @@ public class KMP_Algorithm {
 				arrayPares.add(posicion);
 				copy = (Stack) original.clone();
 			}
+	
 		}
 		return arrayPares;
 	}

@@ -29,7 +29,9 @@ public class Vista extends JFrame{
 	private ParametrosPanel parametrosPanel;
 	private ResultadoPanel resultadoPanel;
 	
-	
+	/**
+	 * Representa el metodo constructor de la clase Vista.  
+	 */
 	public Vista(){
 		 setSize(500, 500);
 		 setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -47,6 +49,11 @@ public class Vista extends JFrame{
 		 setVisible(true);
 	}
 	
+	/**
+	 * Se encarga de resaltar los patrones que los algoritmos encuentran en el texto.
+	 * @param comp Cumple la funcion de resaltador.
+	 * @param posiciones Posiciones en las que se resaltará.
+	 */
 	 public void highlight(JTextComponent comp, ArrayList<String> posiciones) {
 
 	        try {
@@ -68,6 +75,10 @@ public class Vista extends JFrame{
 		JOptionPane.showMessageDialog(null, msg);
 	}
 	
+	/**
+	 * Metodo para cargat el archivo txt del usuario.
+	 * @return Lectura del contenido.
+	 */
 	public String cargarArchivo() {
 		
 		
@@ -152,19 +163,28 @@ public class Vista extends JFrame{
 		return texto;
 	}
 
+	/**
+	 * Se encarga de obtener le panel inicial que contiene el menú.
+	 * @return Panel inicial
+	 */
 	public InicioPanel getInicioPanel() {
 		return inicioPanel;
 	}
 
-
+	/**
+	 * Se encarga de obtener le panel que contiene los parametros que requerimos por parte del usuario.
+	 * @return Panel de parametros
+	 */
 	public ParametrosPanel getParametrosPanel() {
 		return parametrosPanel;
 	}
 
+	/**
+	 * Se encarga de obtener el panel de resultados con el texto resaltado.
+	 * @return Panel de resultados.
+	 */
 	public ResultadoPanel getResultadoPanel() {
 		return resultadoPanel;
 	}
-
-	
 	
 }

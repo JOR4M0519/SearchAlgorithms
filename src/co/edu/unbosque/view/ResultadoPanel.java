@@ -14,6 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
+/**
+ * En esta clase se encuentran los metodos que permiten la visualización del panel de los resultados.
+ * @author Laura Mateus, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class ResultadoPanel extends JPanel{
 
 	private	JLabel lblTitulo;
@@ -21,6 +26,9 @@ public class ResultadoPanel extends JPanel{
 	private JScrollPane scrollBar;
 	private JButton btnRegresar;
 	
+	/**
+	 * Representa el metodo constructor de la clase ResultadoPanel.  
+	 */
 	public ResultadoPanel() {
 		
 		setLayout(new GridBagLayout());
@@ -47,6 +55,17 @@ public class ResultadoPanel extends JPanel{
 		
 	}
 	
+	/**
+	 * Añade los componentes al panel y especifica lase cordenadas del mismo.
+	 * @param component Componente que verá el usuario.
+	 * @param gridx Ajuste del grid en el eje x.
+	 * @param gridy Ajuste del grid en el eje y.
+	 * @param gridwidth Ajuste del acho del grid.
+	 * @param gridheight Ajuste del alto del grid.
+	 * @param weightx Ajusta la distribucion tendra el componente en el eje x.
+	 * @param weighty Ajusta la distribucion tendra el componente en el eje y.
+	 * @param fill Rellena el area que le es asignada.
+	 */
 	private void addComponent(Component component, int gridx, int gridy, int gridwidth, int gridheight,double weightx, double weighty, int fill) {
 	    GridBagConstraints gbc = new GridBagConstraints();
 	    gbc.gridx = gridx;
@@ -59,18 +78,34 @@ public class ResultadoPanel extends JPanel{
 	    add(component, gbc);
 	  }
 
+	/**
+	 * Se encarga de obtener el label del titulo.
+	 * @return Label del titulo.
+	 */
 	public JLabel getLblTitulo() {
 		return lblTitulo;
 	}
 
+	/**
+	 * Se encarga de obtener el textarea del texto resaltado.
+	 * @return TextArea del texto resaltado.
+	 */
 	public JTextArea getTxtResultado() {
 		return txtResultado;
 	}
 
+	/**
+	 * Se encarga de obtener el la barra para scrollear.
+	 * @return Barra para scrollear.
+	 */
 	public JScrollPane getScrollBar() {
 		return scrollBar;
 	}
 
+	/**
+	 * Se encarga de obtener el boton para regresar al panel inicial.
+	 * @return Boton para regresar al panel inicial.
+	 */
 	public JButton getBtnRegresar() {
 		return btnRegresar;
 	}
