@@ -6,10 +6,16 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultHighlighter;
+import javax.swing.text.Document;
+import javax.swing.text.Highlighter;
+import javax.swing.text.JTextComponent;
 
 /**
  * Esta clase representa a la vista en el patron de arquitectura MVC.
@@ -40,6 +46,20 @@ public class Vista extends JFrame{
 		 add(inicioPanel,BorderLayout.CENTER);
 		 setVisible(true);
 	}
+	
+	 public void highlight(JTextComponent comp, ArrayList<String> posiciones) {
+
+	        try {
+	            Highlighter hilite = comp.getHighlighter();
+	            for (String string : posiciones) {
+	            	
+	            	hilite.addHighlight( Integer.parseInt(string.split(",")[0]),Integer.parseInt(string.split(",")[1]) , DefaultHighlighter.DefaultPainter);	
+				}
+	            
+	            
+	        } catch (BadLocationException e) {
+	        }
+	    }
 	
 	/**
 	 * Método encargado de mostrarle al usuario un mensaje.
