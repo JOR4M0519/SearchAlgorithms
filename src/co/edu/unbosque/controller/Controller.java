@@ -93,6 +93,10 @@ public class Controller implements ActionListener {
 			
 			if(contenido.getPatron() != null) {
 				
+				vista.getResultadoPanel().getTxtResultado().setText(contenido.getTexto());
+				vista.highlight(vista.getResultadoPanel().getTxtResultado(), contenido.obtnerPosicionesPatrones(sensibleMay)); ;
+				
+				
 				vista.getResultadoPanel().setVisible(true);
 				vista.getParametrosPanel().setVisible(false);
 				vista.setContentPane(vista.getResultadoPanel());	

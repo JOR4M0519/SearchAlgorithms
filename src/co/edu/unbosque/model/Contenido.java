@@ -1,5 +1,7 @@
 package co.edu.unbosque.model;
 
+import java.util.ArrayList;
+
 public class Contenido {
 
 	private KMP_Algorithm kmp_Algorithm;
@@ -8,10 +10,19 @@ public class Contenido {
 	private String patron;
 	
 	
+	public Contenido() {
+		kmp_Algorithm = new KMP_Algorithm();
+	}
 	
-	
-	
-	
+	public ArrayList<String> obtnerPosicionesPatrones(boolean sensibleMay){
+		
+		if(tipoAlgoritmo.equals("KMP")) {
+			return kmp_Algorithm.busquedaPatrones(texto, patron, sensibleMay);	
+		}
+		
+		return null;
+		
+	}
 	
 	public String getTipoAlgoritmo() {
 		return tipoAlgoritmo;
