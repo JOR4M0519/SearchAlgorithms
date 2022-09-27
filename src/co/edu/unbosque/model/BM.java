@@ -1,5 +1,11 @@
 package co.edu.unbosque.model;
 
+/**
+ * En la clase BM se encuentran los metodos que contibuyen a la identificacion de patrones en un texto mediante el algoritmo
+ * BM.
+ * @author Laura Mateus, Jeanpierr Ramos y Kevin Garcia.
+ *
+ */
 public class BM {
 
 	private String posicion;
@@ -18,13 +24,21 @@ public class BM {
 	//	System.out.println("El numero de patrones encontrados es: "+numeroDePatrones);
 	//Ignorar esto - controller BM
 
+	/**
+	 * Se encarga de asignar las acciones de los componentes.
+	 */
 	public BM() {
 		this.posicion="";
 	}
 
-	//Obtiene las posiciones en donde encontró semejanza y las separa todas, 
-	//guardándolas en un array para saber el número de patrones encontrados 
-	//y sus posiciones dentro del texto
+	
+	/**
+	 * Obtiene las posiciones en donde encontra semejanza y las separa todas guardandolas en un array para saber el n�mero 
+	 * de patrones encontrados y sus posiciones dentro del texto.
+	 * @param textoLargo Texto ingresado por el usuario.
+	 * @param patron Patron ingresado por el usuario.
+	 * @return Posiciones en donde se encuentran los patrones.
+	 */
 	public String[] obtenerPosiciones(String textoLargo, String patron) {
 		buscar(textoLargo, patron);
 		if(this.posicion.length()==0) {
@@ -33,8 +47,14 @@ public class BM {
 		this.posicion=this.posicion.substring(0, this.posicion.length()-1);
 		return this.posicion.split(" ");
 	}
-
-	// preprocessing for strong good suffix rule
+	
+	/**
+	 * Se encarga de procesar el texto para encontrar patrones en un determinado caso.
+	 * @param tempUno Array que almacena el primer caracter.
+	 * @param tempDos Array que almacena los caracteres comunes.
+	 * @param arrayPatron Array que almacana el patron.
+	 * @param tamanoPatron Cantidad de caracteres del patron.
+	 */
 	public void revisarCasoUno(int []tempUno, int []tempDos,char []arrayPatron, int tamanoPatron){
 		// m is the length of pattern 
 		int x= tamanoPatron; 
@@ -66,6 +86,14 @@ public class BM {
 	}
 
 	//Preprocessing for case 2
+	
+	/**
+	 * Se encarga de procesar el texto para encontrar patrones en el segundo caso.
+	 * @param tempUno Array que almacena el primer caracter.
+	 * @param tempDos Array que almacena los caracteres comunes.
+	 * @param arrayPatron Array que almacana el patron.
+	 * @param tamanoPatron Cantidad de caracteres del patron.
+	 */
 	public void revisarCasoDos(int []tempUno, int []tempDos,char []arrayPatron, int tamanoPatron){
 		int x; 
 		int i;
@@ -86,9 +114,12 @@ public class BM {
 			}
 		}
 	}
-
-	/*Search for a pattern in given text using
-Boyer Moore algorithm with Good suffix rule */
+	
+	/**
+	 * Se encarga de buscar un patron en el texto usando el algoritmo BM.
+	 * @param textoLargo Texto ingresado por el usuario.
+	 * @param patron Patron a buscar.
+	 */
 	public void buscar(String textoLargo, String patron){
 
 		char[] arrayTextoLargo= textoLargo.toCharArray();
