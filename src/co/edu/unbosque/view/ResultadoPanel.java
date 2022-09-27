@@ -33,6 +33,7 @@ public class ResultadoPanel extends JPanel{
 		
 		txtResultado = new JTextArea(5,5);
 		txtResultado.setLineWrap(true);
+		txtResultado.setWrapStyleWord(true);
 		txtResultado.setEditable(false);
 		
 		scrollBar = new JScrollPane(txtResultado);
