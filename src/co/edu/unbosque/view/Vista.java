@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -36,7 +37,7 @@ public class Vista extends JFrame{
 		 resultadoPanel = new ResultadoPanel();
 		 parametrosPanel = new ParametrosPanel();
 		 
-		 add(resultadoPanel,BorderLayout.CENTER);
+		 add(inicioPanel,BorderLayout.CENTER);
 		 setVisible(true);
 	}
 	
@@ -46,6 +47,24 @@ public class Vista extends JFrame{
 	 */
 	public void mostrarVentana(String msg) {
 		JOptionPane.showMessageDialog(null, msg);
+	}
+	
+	public String cargarArchivo() {
+		
+		
+		JFileChooser file=new JFileChooser();
+		file.showOpenDialog(this);
+		
+		
+		
+		if(file.getSelectedFile().getName().split("\\.")[1].equals("txt")) {
+			return leerContenido(file.getSelectedFile());	
+		}
+		
+		mostrarVentana("Error\n"+"El archivo cargado es diferente al formato 'txt', vuelva a intentarlo");
+		
+		return "";
+		
 	}
 	
 	/**
@@ -74,29 +93,28 @@ public class Vista extends JFrame{
 	 * Método encargado de escribir el resultado en archivos.
 	 * @param palabras Datos de ingreso.
 	 */
-	public void escribirContenido(String palabras) {
-
-		try {
-			String contenido =leerContenido()+palabras+"\n";
-			FileWriter myWriter = new FileWriter("resultado.txt");
-
-
-
-			myWriter.write(contenido);
-			myWriter.close();
-		} catch (IOException e) {
-			System.out.println("Un error ocurrió.");
-			e.printStackTrace();
-		}
-	}
+//	public void escribirContenido(String palabras) {
+//
+//		try {
+//			String contenido =leerContenido()+palabras+"\n";
+//			FileWriter myWriter = new FileWriter("resultado.txt");
+//
+//
+//
+//			myWriter.write(contenido);
+//			myWriter.close();
+//		} catch (IOException e) {
+//			System.out.println("Un error ocurrió.");
+//			e.printStackTrace();
+//		}
+//	}
 
 	/**
 	 * Método encargado de leer el contenido del archivo.
 	 * @return Contenido del archivo.
 	 */
-	public String leerContenido(){
+	public String leerContenido(File file){
 		String texto="";
-		File file = new File("resultado.txt");
 		String word;
 		try {
 			FileReader fileReader = new FileReader(file);
