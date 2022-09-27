@@ -2,13 +2,8 @@ package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Random;
-import java.util.stream.LongStream;
 
-import javax.swing.JOptionPane;
-
+import co.edu.unbosque.model.Contenido;
 import co.edu.unbosque.view.Vista;
 
 /**
@@ -20,6 +15,7 @@ import co.edu.unbosque.view.Vista;
 public class Controller implements ActionListener {
 
 
+	private Contenido contenido;
 	private Vista vista;
 	/**
 	 * Representa el mÃ©todo constructor de la clase Controller, en el cual, se hacen las validaciones que permiten el 
@@ -27,6 +23,7 @@ public class Controller implements ActionListener {
 	 */
 	public Controller() {
 
+		contenido = new Contenido();
 		vista = new Vista();
 		asignarOyentes();
 		
@@ -39,6 +36,10 @@ public class Controller implements ActionListener {
 		vista.getInicioPanel().getBtnCargarArchivo().addActionListener(this);
 		vista.getInicioPanel().getBtnSalir().addActionListener(this);
 		
+		vista.getParametrosPanel().getBtnContinuar().addActionListener(this);
+		vista.getParametrosPanel().getBtnRegresar().addActionListener(this);
+		
+		vista.getResultadoPanel().getBtnRegresar().addActionListener(this);
 		
 	}
 	
@@ -47,22 +48,58 @@ public class Controller implements ActionListener {
 		
 		if(e.getActionCommand().equals("ALGORITMO_BM")) {
 			
-			System.out.println("Di click");
+			if(contenido.getTexto() != null){
+				contenido.setTipoAlgoritmo("BM");
+				vista.getParametrosPanel().setVisible(true);
+				vista.getInicioPanel().setVisible(false);
+				vista.setContentPane(vista.getParametrosPanel());	
+			}else {
+				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrón");
+			}
 			
 		}else if(e.getActionCommand().equals("ALGORITMO_KMP")) {
 			
-			
+			if(contenido.getTexto() != null) {
+				contenido.setTipoAlgoritmo("KMP");
+				vista.getParametrosPanel().setVisible(true);
+				vista.getInicioPanel().setVisible(false);
+				vista.setContentPane(vista.getParametrosPanel());	
+			}else {
+				vista.mostrarVentana("No se ha cargado ningun archivo porfavor\n"+"cargue un archivo para buscar un patrón");
+			}
 			
 		}else if(e.getActionCommand().equals("CARGAR_TEXTO")) {
 			
-			
+			contenido.setTexto(vista.cargarArchivo());
 			
 		}else if(e.getActionCommand().equals("SALIR")) {
-			
+			System.exit(0);
 		}
 		
-		
+		if(e.getActionCommand().equals("REGRESAR")) {
+			
+			contenido.setPatron(null);
+			contenido.setTexto(null);
+			vista.getInicioPanel().setVisible(true);
+			vista.getResultadoPanel().setVisible(false);
+			vista.getParametrosPanel().setVisible(false);
+			vista.setContentPane(vista.getInicioPanel());
+			
+		}else if(e.getActionCommand().equals("CONTINUAR")) {
+
+			String patron =vista.getParametrosPanel().getTxtTextoBuscar().getText();
+			contenido.setPatron(patron);
+			boolean sensibleMay = vista.getParametrosPanel().getChkMayusMinus().isSelected();
+			
+			if(contenido.getPatron() != null) {
+				
+				vista.getResultadoPanel().setVisible(true);
+				vista.getParametrosPanel().setVisible(false);
+				vista.setContentPane(vista.getResultadoPanel());	
+			}
+		}
 	}
+	
 
 }
 
