@@ -92,6 +92,8 @@ public class Controller implements ActionListener {
 			vista.getParametrosPanel().setVisible(false);
 			vista.setContentPane(vista.getInicioPanel());
 			
+			contenido = new Contenido();
+			
 		}else if(e.getActionCommand().equals("CONTINUAR")) {
 
 			String patron =vista.getParametrosPanel().getTxtTextoBuscar().getText();
@@ -102,7 +104,7 @@ public class Controller implements ActionListener {
 				ArrayList<String> resultado=contenido.obtnerPosicionesPatrones(sensibleMay);
 				vista.getResultadoPanel().getTxtResultado().setText(contenido.getTexto()+"\n"
 				+"El numero de coincidencias es de: "+ resultado.size());
-				vista.highlight(vista.getResultadoPanel().getTxtResultado(),resultado);
+				vista.resaltarTexto(vista.getResultadoPanel().getTxtResultado(),resultado);
 				
 				vista.getResultadoPanel().setVisible(true);
 				vista.getParametrosPanel().setVisible(false);

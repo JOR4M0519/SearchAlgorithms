@@ -4,8 +4,6 @@ import java.awt.BorderLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JFileChooser;
@@ -13,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
-import javax.swing.text.Document;
 import javax.swing.text.Highlighter;
 import javax.swing.text.JTextComponent;
 
@@ -54,7 +51,7 @@ public class Vista extends JFrame{
 	 * @param comp Cumple la funcion de resaltador.
 	 * @param posiciones Posiciones en las que se resaltar�.
 	 */
-	 public void highlight(JTextComponent comp, ArrayList<String> posiciones) {
+	 public void resaltarTexto(JTextComponent comp, ArrayList<String> posiciones) {
 
 	        try {
 	            Highlighter hilite = comp.getHighlighter();
@@ -97,47 +94,6 @@ public class Vista extends JFrame{
 		
 	}
 	
-	/**
-	 * Método encargado de obtener un dato solicitado al usuario por medio de una ventana con un mensaje.
-	 * @param msg Mensaje para el usuario.
-	 * @return Ventana en la que se ingresa el dato.
-	 */
-	public String recibirDato(String msg) {
-		return JOptionPane.showInputDialog(null, msg);
-	}
-	
-	/**
-	 * Método encargado de obtener una confirmacin al usuario por medio de una ventana con un mensaje.
-	 * @param msg Mensaje para el usuario.
-	 * @return Valor booleano.
-	 */
-	public boolean recibirBoolean(String msg) {
-		int respuesta = JOptionPane.showConfirmDialog(null, msg, "Confirmación" ,JOptionPane.YES_NO_OPTION);
-		
-		if (respuesta == JOptionPane.NO_OPTION) return false;
-		
-		return true;
-	}
-	
-	/**
-	 * Método encargado de escribir el resultado en archivos.
-	 * @param palabras Datos de ingreso.
-	 */
-//	public void escribirContenido(String palabras) {
-//
-//		try {
-//			String contenido =leerContenido()+palabras+"\n";
-//			FileWriter myWriter = new FileWriter("resultado.txt");
-//
-//
-//
-//			myWriter.write(contenido);
-//			myWriter.close();
-//		} catch (IOException e) {
-//			System.out.println("Un error ocurrió.");
-//			e.printStackTrace();
-//		}
-//	}
 
 	/**
 	 * Método encargado de leer el contenido del archivo.
